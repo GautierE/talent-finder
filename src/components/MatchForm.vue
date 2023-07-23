@@ -1,5 +1,11 @@
 <script>
 export default {
+    props: {
+        formSubmitted: {
+            type: Function,
+            required: true
+        }
+    },
     data() {
         return {
             location: '',
@@ -12,7 +18,7 @@ export default {
     },
     methods: {
         submitForm() {
-            console.log('Form submitted');
+            this.formSubmitted();
         },
     },
 };
@@ -29,7 +35,6 @@ export default {
                     <input v-model="location" type="text" id="location" name="location" class="form-input w-full">
                 </div>
 
-                <!-- Add other form fields here -->
                 <div class="mb-4">
                     <label class="block text-gray-700 font-bold mb-2" for="isRemote">Is Remote:</label>
                     <input v-model="isRemote" type="checkbox" id="isRemote" name="isRemote" class="form-checkbox">
