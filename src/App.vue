@@ -1,14 +1,11 @@
 <script setup>
+import MatchForm from './components/MatchForm.vue';
 </script>
 
 <template>
-  <header>
-  </header>
-
   <main>
+    <MatchForm />
   </main>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
