@@ -12,13 +12,20 @@ export default {
             isRemote: false,
             experience: 0,
             salary: 0,
-            mainSkills: '',
-            secondarySkills: '',
+            mainSkills: ["PHP", "React"],
+            secondarySkills: ["CSS", "HTML"],
         };
     },
     methods: {
         submitForm() {
-            this.formSubmitted();
+            this.formSubmitted({
+                location: this.location,
+                isRemote: this.isRemote,
+                experience: this.experience,
+                salary: this.salary,
+                mainSkills: this.mainSkills,
+                secondarySkills: this.secondarySkills,
+            });
         },
     },
 };

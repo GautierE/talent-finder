@@ -5,25 +5,26 @@ import MatchResults from './components/MatchResults.vue';
 
 let matchingCandidates = ref([]);
 
-function handleFormSubmit(jobRequirements) {
-  console.log(matchingCandidates);
+async function handleFormSubmit(jobRequirements) {
+  try {
+    const apiUrl = import.meta.env.VITE_API_URL;
+    const response = await fetch(`${apiUrl}/candidate/match`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(jobRequirements),
+    });
 
-  matchingCandidates.value = [
-    {
-      id: 1,
-      firstName: "John",
-      lastName: "Doe",
-      experience: 3,
-      salary: 50000,
-    },
-    {
-      id: 2,
-      firstName: "Jane",
-      lastName: "Smith",
-      experience: 5,
-      salary: 60000,
-    },
-  ];
+    if (!response.ok) {
+      throw new Error('Failed to fetch matching candidates.');
+    }
+
+    const data = await response.json();
+    matchingCandidates.value = data;
+  } catch (error) {
+    console.error(error);
+  }
 }
 </script>
 
