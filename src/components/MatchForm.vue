@@ -57,10 +57,10 @@ export default {
 
     computed: {
         availableMainSkills() {
-            return this.skills.filter(skill => !this.secondarySkills.includes(skill));
+            return this.skills.filter(skill => !this.secondarySkills.includes(skill.name));
         },
         availableSecondarySkills() {
-            return this.skills.filter(skill => !this.mainSkills.includes(skill));
+            return this.skills.filter(skill => !this.mainSkills.includes(skill.name));
         },
     },
 

@@ -4,6 +4,7 @@ import MatchForm from './components/MatchForm.vue';
 import MatchResults from './components/MatchResults.vue';
 
 let matchingCandidates = ref([]);
+let showMatchResults = ref(false);
 
 async function handleFormSubmit(jobRequirements) {
   try {
@@ -21,6 +22,7 @@ async function handleFormSubmit(jobRequirements) {
 
     const data = await response.json();
     matchingCandidates.value = data;
+    showMatchResults.value = true;
   } catch (error) {
     console.error(error);
   }
@@ -29,7 +31,7 @@ async function handleFormSubmit(jobRequirements) {
 
 <template>
   <main>
-    <MatchForm :form-submitted="handleFormSubmit" />
-    <MatchResults :candidates="matchingCandidates" />
+    <MatchForm v-if="!showMatchResults" :form-submitted="handleFormSubmit" />
+    <MatchResults v-if="showMatchResults" :candidates="matchingCandidates" />
   </main>
 </template>
