@@ -8,7 +8,7 @@
                 @mousemove="onMouseMove($event)" @mouseup="onMouseUp"
                 :style="{ transform: activeIndex === index ? `translateX(${currentX}px) rotate(${currentRotation}deg)` : `translateX(0px) rotate(0deg)` }">
                 <div class="flex flex-col items-center h-full px-4 pb-4 justify-evenly">
-                    <img :src="getAvatarImage(candidate.id)" alt="Avatar" class="w-[80%] md:w-[40%]" />
+                    <img :src="candidate.avatarUrl" alt="Avatar" class="w-[80%] md:w-[40%]" />
                     <h3 class="mt-2 font-bold text-[22px] md:text-[35px] lg:text-[30px]">{{ candidate.firstName }} {{
                         candidate.lastName }}
                     </h3>
@@ -54,11 +54,13 @@ export default {
             swipedCardsIndexes: []
         };
     },
+    created() {
+        this.candidates.forEach(this.calculateAvatarUrl);
+    },
     methods: {
-        getAvatarImage(candidateId) {
-            return "public/avatars/avatar" + candidateId % 6 + ".svg";
+        calculateAvatarUrl(candidate) {
+            candidate.avatarUrl = `public/avatars/avatar${candidate.id % 6}.svg`;
         },
-
         onTouchStart(index, event) {
             this.startX = event.touches[0].clientX;
             this.startY = event.touches[0].clientY;
