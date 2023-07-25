@@ -7,8 +7,7 @@ let matchingCandidates = ref([]);
 
 async function handleFormSubmit(jobRequirements) {
   try {
-    const apiUrl = import.meta.env.VITE_API_URL;
-    const response = await fetch(`${apiUrl}/candidate/match`, {
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/candidate/match`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
