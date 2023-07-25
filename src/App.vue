@@ -27,11 +27,15 @@ async function handleFormSubmit(jobRequirements) {
     console.error(error);
   }
 }
+
+function handleShowFormAgain() {
+  showMatchResults.value = false;
+}
 </script>
 
 <template>
   <main>
     <MatchForm v-if="!showMatchResults" :form-submitted="handleFormSubmit" />
-    <MatchResults v-if="showMatchResults" :candidates="matchingCandidates" />
+    <MatchResults v-if="showMatchResults" :candidates="matchingCandidates" @toggle-form="handleShowFormAgain" />
   </main>
 </template>

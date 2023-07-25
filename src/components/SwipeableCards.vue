@@ -2,7 +2,7 @@
     <div class="relative flex flex-col items-center justify-start h-full overflow-hidden">
         <div class="flex items-center justify-center h-full overflow-hidden">
             <div v-for="(candidate, index) in candidates" :key="candidate.id" :ref="() => { return `card-${index}` }"
-                class="select-none absolute w-3/4 border-4 shadow lg:w-[40%] xl:w-2/6 2xl:w-1/4 top-10 md:top-14 rounded-xl h-3/4 bg-accent-100 border-primary-500"
+                class="select-none absolute w-3/4 border-4 shadow lg:w-[40%] xl:w-2/6 2xl:w-1/4 top-14 md:top-20 lg:top-16 rounded-xl h-3/4 bg-accent-100 border-primary-500"
                 :class="{ 'hidden': swipedCardsIndexes.includes(index) }" @touchstart="onTouchStart(index, $event)"
                 @touchmove="onTouchMove($event)" @touchend="onTouchEnd" @mousedown="onMouseDown(index, $event)"
                 @mousemove="onMouseMove($event)" @mouseup="onMouseUp"
@@ -27,7 +27,7 @@
         </div>
         <div class="absolute w-full bottom-4 md:bottom-8">
             <div class="flex items-center justify-center select-none">
-                <img class="z-20 p-1 m-4 border-4 rounded-full w-14 md:w-20 md:border-[6px] lg:w-16 lg:border-4 bg-accent-100 border-primary-500"
+                <img class="cursor-pointer z-20 p-1 m-4 border-4 rounded-full w-14 md:w-20 md:border-[6px] lg:w-16 lg:border-4 bg-accent-100 border-primary-500"
                     src="/public/icons/undo_icon.svg" alt="Undo icon" @click="removeLastSwipedCard" />
             </div>
         </div>
