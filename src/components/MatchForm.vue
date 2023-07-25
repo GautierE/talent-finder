@@ -52,7 +52,9 @@ export default {
                 console.error('Error fetching skills:', error);
             }
         },
-
+        isMainSkillDisabled(skill) {
+            return this.mainSkills.length >= 5 && !this.mainSkills.includes(skill.name);
+        },
     },
 
     computed: {
@@ -104,9 +106,10 @@ export default {
                     <label class="block mb-2 font-bold text-gray-700" for="mainSkills">Main Skills</label>
                     <select v-model="mainSkills" id="mainSkills" name="mainSkills" class="w-full px-2 rounded bg-primary-50"
                         multiple>
-                        <option value="">Select a Main Skill</option>
-                        <option v-for="skill in availableMainSkills" :key="skill.name" :value="skill.name">{{
-                            skill.name }}</option>
+                        <option value="">Select up to 5 main skills</option>
+                        <option v-for="skill in availableMainSkills" :key="skill.name" :value="skill.name"
+                            :disabled="isMainSkillDisabled(skill)">{{
+                                skill.name }}</option>
                     </select>
                 </div>
 
