@@ -12,10 +12,10 @@
                     <h3 class="mt-2 font-bold text-[22px] md:text-[35px] lg:text-[30px]">{{ candidate.firstName }} {{
                         candidate.lastName }}
                     </h3>
-                    <p>{{ candidate.experience }} years of experience</p>
-                    <p>Located in {{ candidate.location }}</p>
-                    <p v-if="candidate.isRemote">Remote friendly !</p>
-                    <p>Salary expectations: {{ candidate.salary }} €</p>
+                    <p>👨‍💻 {{ candidate.experience }} years of experience</p>
+                    <p>📍 Located in {{ candidate.location }}</p>
+                    <p v-if="candidate.isRemote">🌎 Remote friendly !</p>
+                    <p>💰 Salary expectations: {{ candidate.salary }} €</p>
                     <div class="flex flex-row flex-wrap mt-2 overflow-y-scroll">
                         <p :class="getSkillColor(skill.category)" class="px-3 py-1 mx-2 my-1 border-2 rounded-lg"
                             v-for="(skill, skillIndex) in candidate.skills" :key="skillIndex">
