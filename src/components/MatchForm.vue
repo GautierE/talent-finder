@@ -72,35 +72,38 @@ export default {
 
 
 <template>
-    <div class="flex items-center justify-center min-h-screen bg-accent-50">
-        <div class="w-full max-w-md p-8 bg-white rounded-lg shadow-lg">
+    <div class="flex items-center justify-center md:h-screen bg-gradient-to-b from-primary-100 to-secondary-400">
+        <div
+            class="my-4 md:my-0 w-full max-w-[90%] md:max-w-xl p-8 border-4 rounded-lg shadow-lg bg-accent-100 border-primary-500">
             <h2 class="mb-6 text-2xl font-bold">Match Candidate</h2>
             <form @submit.prevent="submitForm">
                 <div class="mb-4">
                     <label class="block mb-2 font-bold text-gray-700" for="location">Location:</label>
-                    <select v-model="location" id="location" name="location" class="w-full form-select">
+                    <select v-model="location" id="location" name="location" class="w-1/2 px-2 rounded bg-primary-50">
                         <option v-for="loc in locations" :key="loc" :value="loc">{{ loc }}</option>
                     </select>
                 </div>
 
-                <div class="mb-4">
-                    <label class="block mb-2 font-bold text-gray-700" for="isRemote">Is Remote:</label>
-                    <input v-model="isRemote" type="checkbox" id="isRemote" name="isRemote" class="form-checkbox">
+                <div class="flex items-center justify-start mb-4">
+                    <label class="block font-bold text-gray-700" for="isRemote">Is Remote</label>
+                    <input v-model="isRemote" type="checkbox" id="isRemote" name="isRemote" class="ml-2">
                 </div>
 
                 <div class="mb-4">
                     <label class="block mb-2 font-bold text-gray-700" for="experience">Experience:</label>
-                    <input v-model="experience" type="number" id="experience" name="experience" class="w-full form-input">
+                    <input v-model="experience" type="number" id="experience" name="experience"
+                        class="px-2 rounded bg-primary-50">
                 </div>
 
                 <div class="mb-4">
                     <label class="block mb-2 font-bold text-gray-700" for="salary">Salary:</label>
-                    <input v-model="salary" type="number" id="salary" name="salary" class="w-full form-input">
+                    <input v-model="salary" type="number" id="salary" name="salary" class="px-2 rounded bg-primary-50">
                 </div>
 
                 <div class="mb-4">
                     <label class="block mb-2 font-bold text-gray-700" for="mainSkills">Main Skills:</label>
-                    <select v-model="mainSkills" id="mainSkills" name="mainSkills" class="w-full form-select" multiple>
+                    <select v-model="mainSkills" id="mainSkills" name="mainSkills" class="w-full px-2 rounded bg-primary-50"
+                        multiple>
                         <option value="">Select a Main Skill</option>
                         <option v-for="skill in availableMainSkills" :key="skill.name" :value="skill.name">{{
                             skill.name }}</option>
@@ -109,8 +112,8 @@ export default {
 
                 <div class="mb-4">
                     <label class="block mb-2 font-bold text-gray-700" for="secondarySkills">Secondary Skills:</label>
-                    <select v-model="secondarySkills" id="secondarySkills" name="secondarySkills" class="w-full form-select"
-                        multiple>
+                    <select v-model="secondarySkills" id="secondarySkills" name="secondarySkills"
+                        class="w-full px-2 rounded bg-primary-50" multiple>
                         <option value="">Select a Secondary Skill</option>
                         <option v-for="skill in availableSecondarySkills" :key="skill.name" :value="skill.name">{{
                             skill.name
