@@ -26,9 +26,13 @@
             </div>
         </div>
         <div class="absolute w-full bottom-4 md:bottom-8">
-            <div class="flex items-center justify-center select-none">
+            <div class="flex items-center justify-around w-full select-none">
+                <img class="z-20 p-1 m-4 rounded-full w-14 md:w-20 lg:w-24 " src="/public/icons/swipe_left_icon.svg"
+                    alt="Undo icon" @click="removeLastSwipedCard" />
                 <img class="cursor-pointer z-20 p-1 m-4 border-4 rounded-full w-14 md:w-20 md:border-[6px] lg:w-16 lg:border-4 bg-accent-100 border-primary-500"
                     src="/public/icons/undo_icon.svg" alt="Undo icon" @click="removeLastSwipedCard" />
+                <img class="z-20 p-1 m-4 rounded-full w-14 md:w-20 lg:w-24" src="/public/icons/swipe_right_icon.svg"
+                    alt="Undo icon" @click="removeLastSwipedCard" />
             </div>
         </div>
     </div>
