@@ -36,7 +36,7 @@ export default {
         submitForm() {
             this.formSubmitted({
                 location: this.location,
-                isremote: this.isRemote,
+                isRemote: this.isRemote,
                 experience: this.experience,
                 salary: this.salary,
                 mainSkills: this.mainSkills,
